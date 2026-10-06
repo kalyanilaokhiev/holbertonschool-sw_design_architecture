@@ -1,0 +1,12 @@
+sequenceDiagram
+  actor User
+  participant Library
+  participant Book
+  User->>Library: request loan
+  Library->>Book: mark as unavailable
+  create participant Loan
+  Library->>Loan: create loan
+  activate Loan
+  Loan-->>Library: return loan
+  deactivate Loan
+  Library-->>User: loan created
